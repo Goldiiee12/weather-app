@@ -68,6 +68,8 @@ function displayWeatherData(data) {
     const weatherDataDiv = document.getElementById('weather-data');
     const weatherOtherDiv = document.getElementById('weather-other');
     const toggleButton = document.getElementById('toggle-temp');
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const timeOptions = { hour: '2-digit', minute: '2-digit'};
 
     if (data.cod === 200) {
         let temperature = data.main.temp; // Get the temperature from the data
@@ -84,20 +86,22 @@ function displayWeatherData(data) {
 
         // Update the innerHTML with the additional weather information
         weatherDataDiv.innerHTML = `
-            <h2>${data.name}, ${data.sys.country}</h2>
-            <p>Date: ${new Date(data.dt * 1000).toLocaleDateString()}</p>
-            <p>Time: ${new Date(data.dt * 1000).toLocaleTimeString()}</p>
-            <p>Temperature: ${temperature.toFixed(1)}${tempUnit}</p>`;
-    
+        <h2>${data.name}, ${data.sys.country}</h2>
+        <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="${data.weather[0].description}">
+        <p5> ${temperature.toFixed(1)}${tempUnit}</p5>
+        <p> ${new Date(data.dt * 1000).toLocaleDateString(undefined, dateOptions)}</p>
+        <p> ${new Date(data.dt * 1000).toLocaleTimeString(undefined, timeOptions)}</p>
+        <p>${data.weather[0].description}</p>
+`;
+
         weatherOtherDiv.innerHTML = `
-            <p>Feels Like: ${feelsLike.toFixed(1)}${tempUnit}</p>
-            <p>Weather: ${data.weather[0].main}</p>
-            <p>Humidity: ${data.main.humidity}%</p>
-            ${precipitation}
-            <p>Wind Speed: ${windSpeed}</p>
-            <p>Pressure: ${data.main.pressure} hPa</p>
-            <p>Sunrise: ${new Date(data.sys.sunrise * 1000).toLocaleTimeString()}</p>
-            <p>Sunset: ${new Date(data.sys.sunset * 1000).toLocaleTimeString()}</p>`;
+        <p><i class="fas fa-thermometer-half"></i> Feels Like: ${feelsLike.toFixed(1)}${tempUnit}</p>
+        <p><i class="fas fa-tint"></i> Humidity: ${data.main.humidity}%</p>
+        ${precipitation ? `<p><i class="fas fa-cloud-rain"></i> ${precipitation}</p>` : ''}
+        <p><i class="fas fa-wind"></i> Wind Speed: ${windSpeed}</p>
+        <p><i class="fas fa-tachometer-alt"></i> Pressure: ${data.main.pressure} hPa</p>
+        <p><i class="fas fa-sun"></i> Sunrise: ${new Date(data.sys.sunrise * 1000).toLocaleTimeString(undefined, timeOptions)}</p>
+        <p><i class="fas fa-moon"></i> Sunset: ${new Date(data.sys.sunset * 1000).toLocaleTimeString(undefined, timeOptions)}</p>`;
 
         // Update the toggle button text
         fetchWeeklyForecast(data.coord.lat, data.coord.lon);
@@ -138,6 +142,7 @@ function displayWeeklyForecast(forecastData) {
                 <h3>${dayName}</h3>
                 <p>Temperature: ${maxTemp.toFixed(1)}${tempUnit} / ${minTemp.toFixed(1)}${tempUnit}</p>
                 <p>Weather: ${forecastData[0].weather[0].main}</p>
+                <img src="https://openweathermap.org/img/w/${forecastData[0].weather[0].icon}.png" alt="${forecastData[0].weather[0].description}">
             </div>`;
     });
 
@@ -165,6 +170,7 @@ function displayHourlyForecast(hourlyData) {
                 <h4>${hour}:00</h4>
                 <p>Temp: ${temperature}${tempUnit}</p>
                 <p>${weather}</p>
+                <img src="https://openweathermap.org/img/w/${hourForecast.weather[0].icon}.png" alt="${weather}">
             `;
 
             hourlyForecastDiv.appendChild(hourElem);
