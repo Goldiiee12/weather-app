@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Cast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id = "main">
+        <div id="weather-info">
+            <h1>Sky Cast</h1>
+            <input type="text" id="search-box" placeholder="Search for a city...">
+            <button id="search-btn">Search</button>
+            <div id="weather-data"></div> 
+        </div>
+
+        <div id="weather-details">
+        <button id="toggle-temp">Switch to Fahrenheit</button>
+        <div id="weather-other"></div> 
+        </div>
+
+    </div>   
+
+        <div id="forecast">
+            <h2>Hourly Forecast</h2>
+                 <div id="hourly-forecast-container">
+                <!-- Hourly forecast elements will be inserted here by JavaScript -->
+            </div>
+            <h2>5-Day Forecast</h2>
+                <div id="forecast-container">
+                <!-- Each day's forecast will be dynamically inserted here by JavaScript -->
+            </div>                
+        </div>  
+
+    
+
+    <div id="footer">
+        <p>&copy; 2023 Skycast. All rights reserved Caleb.</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

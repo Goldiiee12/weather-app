@@ -1,67 +1,17 @@
-# to-do list
+#Weather-App
 
-This is a Basic Todo-List
+Set up a blank HTML document with the appropriate links to your JavaScript and CSS files.
 
-using date-fns package
+Write the functions that hit the API. You’re going to want functions that can take a location and return the weather data for that location. 
 
-Check out live preview here: 
+Write the functions that process the JSON data you’re getting from the API and return an object with only the data you require for your app.
 
-# Functionality
+Set up a form that will let users input their location and will fetch the weather info (still just console.log() it).
 
-add projects 
+Display the information on your webpage!
 
-rename projects 
+Add any styling you like!
 
-change order of projects using drag and drop feature
+Optional: add a ‘loading’ component that displays from the time the form is submitted until the information comes back from the API. Use DevTools to test for low-end devices.
 
-temporarily hide side panel
-
-add tasks into your projects (title, details, due-date) 
-
-mark or unmark your tasks as completed or important
-
-edit you tasks (title, details, due-date) 
-
-delete you tasks 
-
-display all tasks
-
-display all tasks that is dued today
-
-display all tasks that is dued until next week
-
-display all tasks that are marked important
-
-save all you projects and task to localStorage 
-
-light & Dark mode
-
-# Project Objectives
-
-Todo Item Creation: Implement functionality to dynamically create todo items using factories or constructors/classes. Each todo item should at least include a title, description, due date, and priority. Additional properties like notes or a checklist can also be considered.
-
-Project Management: Implement a system to organize todo items into projects. Include a default project for todos upon application launch. Provide the ability for users to create new projects and assign todos to them.
-
-Application Logic Separation: Separate the application logic (creating todos, marking them as complete, changing priorities, etc.) from the DOM manipulation aspects. Organize these into distinct modules.
-
-User Interface Requirements:
-
-Ability to view all projects.
-
-Ability to view all todos within each project, displaying at least the title, description, due date and priority. Use color coding to indicate different priorities.
-
-Functionality to expand a todo item to view and edit its details.
-
-Option to delete a todo item.
-
-Inspiration and Research: Look at popular todo apps like Todoist, Things, and any.do for design and functionality ideas.
-
-External Libraries: Consider using libraries such as date-fns from npm for date and time manipulation.
-
-Data Persistence: Integrate the Web Storage API to add persistence to the app, ensuring todos and projects are saved locally on the user's computer through localStorage. Implement functions to save new projects/todos and retrieve them on app load.
-
-Error Handling and Debugging:
-
-Ensure the app does not crash if there's no data to retrieve from localStorage.
-
-Remember that localStorage deals with JSON data, which cannot include functions directly. Plan for how to reattach methods to your objects after retrieving them from localStorage.
+Push that baby to github and share your solution below!
