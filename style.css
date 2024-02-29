@@ -1,10 +1,32 @@
-body, html {
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('nature.png'); /* URL to the background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+}
+
+html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f7fa; /* Light grey background for a modern look */
-    color: #333; /* Dark grey color for text for better readability */
+    background: #ffffff; /* Light grey background for a modern look */
 }
+
+#search-box {
+background-color: #7c7c7cd1;
+color: #ffffff;
+font-weight: bold;
+box-shadow: 0 4px 8px rgba(255, 255, 255, 0.328);
+}
+
+#search-box::placeholder {
+    color: #ffffff;
+    opacity: .8; /* Optional: Fully opaque text */
+}
+
 
 #main {
     display: flex;
@@ -20,13 +42,34 @@ body, html {
 p5 {
     font-size: larger; 
     font-weight: bold;
-    color: #1e81b0;
+    color: #ffffff;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px 1px 0 #000,             
+    1px 1px 0 #000; /* Black text shadow to create the outline effect */
 }
 
-h1 {
-    color: #1e81b0;
+p{
+    color: #ffffff;
     font-weight: bold;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px 1px 0 #000,             
+    1px 1px 0 #000; /* Black text shadow to create the outline effect */
 }
+
+h1, h2, h3, h4 {
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px 1px 0 #000,             
+        1px 1px 0 #000; /* Black text shadow to create the outline effect */
+}
+    
 
 .weatherOtherDiv i {
     margin-right: 8px;
@@ -58,6 +101,7 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.328);
 }
 
 button:hover {
@@ -69,7 +113,6 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 60px; /* Adjust this value so the forecast doesn't overlap the footer */
     border-radius: 8px;
-    background: #ffffff;
 }
 
 #hourly-forecast-container, #forecast-container {
@@ -79,7 +122,7 @@ button:hover {
 }
 
 .hour-forecast, .day-forecast {
-    background: #ffffff;
+    background: #7c7c7cd1;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -97,10 +140,10 @@ button:hover {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #1e81b0; /* Keep consistent with the button color */
+    background: #1e82b0; /* Keep consistent with the button color */
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 21px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Adds shadow to the top of the footer */
 }
 
